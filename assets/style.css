@@ -57,6 +57,18 @@ p { margin: 0; }
 /* Hero */
 .hero { position: relative; min-height: 88vh; min-height: 88svh; display: flex; align-items: flex-end; color: var(--white); background: #1E1E1C; overflow: hidden; }
 .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Carousel: slides are stacked; only .is-active is visible. First slide is active in
+   the HTML, so the page looks right without JS. */
+.hero img { opacity: 0; transition: opacity 1.2s var(--ease); }
+.hero img.is-active { opacity: 1; animation: kenburns 7s ease-out both; }
+@keyframes kenburns { from { transform: scale(1.06); } to { transform: scale(1); } }
+.hero__ctrl { position: absolute; z-index: 2; right: var(--gutter); bottom: 28px; display: flex; align-items: center; gap: 4px; }
+.hero__ctrl button { background: transparent; border: 0; color: var(--white); cursor: pointer; }
+.hero__prev, .hero__next { width: 44px; height: 44px; font-size: 28px; line-height: 1; }
+.dots { display: flex; }
+.dot { width: 22px; height: 44px; padding: 0; position: relative; }
+.dot::before { content: ""; position: absolute; left: 6px; top: 18px; width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.45); transition: background .3s, transform .3s; }
+.dot[aria-current="true"]::before { background: var(--white); transform: scale(1.3); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.72) 100%); }
 .hero__in { position: relative; z-index: 1; width: 100%; padding-bottom: 72px; }
 .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
@@ -164,7 +176,9 @@ p { margin: 0; }
   .nav a { padding: 14px 0; font-size: 18px; border-bottom: 1px solid var(--line); }
   :root { --gutter: 16px; }
   .section { padding-top: 72px; }
-  .hero__in { padding-bottom: 48px; }
+  .hero { min-height: calc(100svh - 64px - 72px); }
+  .hero__in { padding-bottom: 96px; }
+  .hero__ctrl { left: var(--gutter); right: auto; bottom: 20px; }
   .hero p.lead { font-size: 17px; }
   .gallery { columns: 2 140px; column-gap: 8px; }
   .gallery a { margin-bottom: 8px; }
@@ -178,6 +192,7 @@ p { margin: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero img.is-active { animation: none; }
   html { scroll-behavior: auto; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .card__img img, .gallery img { transition: none; }

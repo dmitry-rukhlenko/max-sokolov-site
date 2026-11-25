@@ -25,6 +25,42 @@
     items.forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  // Home carousel: crossfade every 5.5 s; pauses on hover/focus and in a hidden tab;
+  // no autoplay when the user prefers reduced motion. Arrows, dots and swipe work always.
+  var hero = document.querySelector('.hero');
+  var slides = hero ? hero.querySelectorAll('.slide') : [];
+  if (slides.length > 1) {
+    var dots = hero.querySelectorAll('.dot');
+    var cur = 0, timer = null;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var go = function (i) {
+      slides[cur].classList.remove('is-active');
+      dots[cur].removeAttribute('aria-current');
+      cur = (i + slides.length) % slides.length;
+      slides[cur].classList.add('is-active');
+      dots[cur].setAttribute('aria-current', 'true');
+    };
+    var play = function () { if (!still && !timer) timer = setInterval(function () { go(cur + 1); }, 5500); };
+    var stop = function () { clearInterval(timer); timer = null; };
+    dots[0].setAttribute('aria-current', 'true');
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); stop(); play(); }); });
+    hero.querySelector('.hero__prev').addEventListener('click', function () { go(cur - 1); stop(); play(); });
+    hero.querySelector('.hero__next').addEventListener('click', function () { go(cur + 1); stop(); play(); });
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', play);
+    hero.addEventListener('focusin', stop);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else play(); });
+    var hx = null;
+    hero.addEventListener('touchstart', function (e) { hx = e.touches[0].clientX; }, { passive: true });
+    hero.addEventListener('touchend', function (e) {
+      if (hx === null) return;
+      var dx = e.changedTouches[0].clientX - hx;
+      if (Math.abs(dx) > 40) { go(cur + (dx < 0 ? 1 : -1)); stop(); play(); }
+      hx = null;
+    });
+    play();
+  }
+
   // Lightbox on <dialog>: arrows, Esc (native), swipe. Falls back to opening the file.
   var links = Array.prototype.slice.call(document.querySelectorAll('.gallery a'));
   var lb = document.querySelector('.lb');
