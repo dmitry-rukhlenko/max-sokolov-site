@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dmitry-rukhlenko.github.io/max-sokolov-site/sitemap.xml
