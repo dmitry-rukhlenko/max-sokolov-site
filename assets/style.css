@@ -140,6 +140,8 @@ p { margin: 0; }
 .card__title { font-size: 22px; font-weight: 600; }
 .card__text { color: var(--text-2); font-size: 15px; }
 .cards--wide .card__img { aspect-ratio: 3 / 2; }
+.home-portfolio .cards--wide { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.home-portfolio .cards--wide .card__img img { object-position: center 30%; }
 
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
 .step { border-top: 1px solid var(--ink); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
