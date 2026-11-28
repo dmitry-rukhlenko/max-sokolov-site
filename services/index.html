@@ -3,40 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Услуги и стоимость фотосъёмки в Минске — Макс Соколов</title>
+<title>Цены и услуги фотографа в Минске — Макс Соколов</title>
 <meta name="description" content="Репортажная, свадебная, портретная и коммерческая съёмка. Стоимость рассчитываю под задачу.">
+
 <link rel="canonical" href="https://dmitry-rukhlenko.github.io/max-sokolov-site/services/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Макс Соколов — фотограф">
-<meta property="og:title" content="Услуги и стоимость фотосъёмки в Минске — Макс Соколов">
+<meta property="og:title" content="Цены и услуги фотографа в Минске — Макс Соколов">
 <meta property="og:description" content="Репортажная, свадебная, портретная и коммерческая съёмка. Стоимость рассчитываю под задачу.">
 <meta property="og:url" content="https://dmitry-rukhlenko.github.io/max-sokolov-site/services/">
 <meta property="og:image" content="https://dmitry-rukhlenko.github.io/max-sokolov-site/img/reportazh-kontserty-045-1600.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F4F4F2">
+<script>
+// Reserve the collapsed mobile header before the deferred script loads.
+document.documentElement.classList.add('has-js');
+document.addEventListener('DOMContentLoaded', function () {
+  if (!document.documentElement.classList.contains('js')) document.documentElement.classList.remove('has-js');
+}, { once: true });
+try {
+  if (localStorage.getItem('max-photo-theme') === 'mono') {
+    document.documentElement.classList.add('mono');
+    document.querySelector('meta[name="theme-color"]').content = '#F4F4F4';
+  }
+} catch (_) {}
+</script>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/app.js" defer></script>
-
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Вы выезжаете за пределы Минска?", "acceptedAnswer": {"@type": "Answer", "text": "Да, работаю по всей Беларуси. Условия выезда обсуждаем отдельно."}}, {"@type": "Question", "name": "Как я получу фотографии?", "acceptedAnswer": {"@type": "Answer", "text": "В онлайн-галерее: можно смотреть, скачивать и делиться ссылкой."}}, {"@type": "Question", "name": "Сколько стоит съёмка?", "acceptedAnswer": {"@type": "Answer", "text": "Зависит от длительности, места и задач. Напишите в Viber или позвоните, и я рассчитаю стоимость под ваше событие."}}, {"@type": "Question", "name": "Вы будете мешать гостям?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Я работаю незаметно, в репортажной манере: люди не позируют, а отдыхают."}}, {"@type": "Question", "name": "Можно ли перевести сайт в чёрно-белый режим?", "acceptedAnswer": {"@type": "Answer", "text": "Да, переключатель «Цвет / Ч/Б» в шапке сайта. Так удобнее оценить свет и композицию."}}, {"@type": "Question", "name": "Когда будут готовы фотографии?", "acceptedAnswer": {"@type": "Answer", "text": "Срок зависит от объёма съёмки. Точный срок назову при обсуждении, до начала работы."}}, {"@type": "Question", "name": "Можно получить несколько фото сразу после события?", "acceptedAnswer": {"@type": "Answer", "text": "Обсудим заранее: если нужна быстрая подборка для соцсетей или пресс-релиза, учту это при планировании."}}, {"@type": "Question", "name": "Вы работаете с компаниями?", "acceptedAnswer": {"@type": "Answer", "text": "Да, снимаю корпоративы, конференции и тимбилдинги для компаний. Условия оплаты и документы обсуждаем индивидуально."}}, {"@type": "Question", "name": "Как забронировать дату?", "acceptedAnswer": {"@type": "Answer", "text": "Напишите или позвоните, указав дату, место и формат события. Я подтвержу, свободен ли день, и расскажу об условиях бронирования."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">К содержимому</a>
 <header class="header">
 <div class="wrap header__in">
 <a class="logo" href="../">МАКС СОКОЛОВ</a>
-<nav class="nav" id="nav" aria-label="Основное меню"><a href="../events/">Мероприятия</a><a href="../weddings/">Свадьбы</a><a href="../portraits/">Портреты</a><a href="../business/">Для бизнеса</a><a href="../about/">Обо мне</a><a href="../contacts/">Контакты</a></nav>
+<nav class="nav" id="nav" aria-label="Основное меню"><a href="../about/">Обо мне</a><div class="nav__portfolio"><a href="../portfolio/">Портфолио</a><ul class="nav__sub"><li><a href="../events/">Мероприятия</a></li><li><a href="../weddings/">Свадьбы</a></li><li><a href="../business/">Для бизнеса</a></li><li><a href="../portraits/">Для себя<small>портреты, love story, семья</small></a></li></ul></div><a href="../services/" aria-current="page">Цены и услуги</a><a href="../contacts/">Контакты</a></nav>
+<div class="header__tools">
+<div class="theme-toggle" role="group" aria-label="Цветовой режим сайта" hidden>
+<button type="button" data-theme="color" aria-pressed="true">Цвет</button>
+<button type="button" data-theme="mono" aria-pressed="false">Ч/Б</button>
+</div>
 <a class="btn" href="../contacts/">Обсудить съёмку</a>
 <button class="menu-btn" type="button" aria-label="Меню" aria-controls="nav" aria-expanded="false">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h18M3 16h18"/></svg>
 </button>
 </div>
+</div>
 </header>
 <main id="main">
-<section class="wrap page-head"><nav class="crumbs" aria-label="Навигация"><a href="../">Главная</a> / Услуги</nav><div class="page-head__row"><h1 class="split">Услуги и стоимость</h1><p class="reveal">Стоимость зависит от длительности, места и задач. Напишите мне — рассчитаю под ваше событие.</p></div></section><section class="wrap"><div class="table-box"><table class="table"><thead><tr><th>Услуга</th><th>Что входит</th><th>Стоимость</th></tr></thead><tbody><tr><td><b>Репортаж мероприятия</b></td><td>Корпоративы, концерты, фестивали, тимбилдинги. Отбор и обработка, онлайн-галерея.</td><td>по запросу</td></tr><tr><td><b>Конференция и деловое событие</b></td><td>Спикеры, зал, нетворкинг, официальная часть.</td><td>по запросу</td></tr><tr><td><b>Свадьба</b></td><td>Репортаж дня, отбор и обработка, онлайн-галерея.</td><td>по запросу</td></tr><tr><td><b>Портретная съёмка</b></td><td>Индивидуальная, fashion, арт-портрет, косплей.</td><td>по запросу</td></tr><tr><td><b>Love story и семейная</b></td><td>Прогулка на локации или студия.</td><td>по запросу</td></tr><tr><td><b>Предметная съёмка</b></td><td>Товары для сайта, каталога и маркетплейса.</td><td>по запросу</td></tr><tr><td><b>Производство и авто</b></td><td>Выезд на объект.</td><td>по запросу</td></tr></tbody></table></div><div class="prose" style="margin-top:40px"><p>Работаю в Минске, выезжаю по всей Беларуси. Условия выезда обсуждаем отдельно.</p></div></section>
+<section class="wrap page-head"><nav class="crumbs" aria-label="Навигация"><a href="../">Главная</a> / Цены и услуги</nav><div class="page-head__row"><h1 class="split">Цены и услуги</h1><p class="reveal">Стоимость зависит от длительности, места и задач. Напишите мне — рассчитаю под ваше событие.</p></div></section><section class="wrap"><div class="table-box"><table class="table"><thead><tr><th>Услуга</th><th>Что входит</th><th>Стоимость</th></tr></thead><tbody><tr><td><b>Репортаж мероприятия</b></td><td>Корпоративы, концерты, фестивали, тимбилдинги. Отбор и обработка, онлайн-галерея.</td><td>по запросу</td></tr><tr><td><b>Конференция и деловое событие</b></td><td>Спикеры, зал, нетворкинг, официальная часть.</td><td>по запросу</td></tr><tr><td><b>Свадьба</b></td><td>Репортаж дня, отбор и обработка, онлайн-галерея.</td><td>по запросу</td></tr><tr><td><b>Портретная съёмка</b></td><td>Индивидуальная, fashion, арт-портрет, косплей.</td><td>по запросу</td></tr><tr><td><b>Love story и семейная</b></td><td>Прогулка на локации или студия.</td><td>по запросу</td></tr><tr><td><b>Предметная съёмка</b></td><td>Товары для сайта, каталога и маркетплейса.</td><td>по запросу</td></tr><tr><td><b>Производство и авто</b></td><td>Выезд на объект.</td><td>по запросу</td></tr></tbody></table></div><div class="prose" style="margin-top:40px"><p>Работаю в Минске, выезжаю по всей Беларуси. Условия выезда обсуждаем отдельно.</p></div></section><section class="wrap section faq" id="faq"><h2>Частые вопросы</h2><div class="faq__list"><details><summary>Вы выезжаете за пределы Минска?</summary><p class="faq__answer">Да, работаю по всей Беларуси. Условия выезда обсуждаем отдельно.</p></details><details><summary>Как я получу фотографии?</summary><p class="faq__answer">В онлайн-галерее: можно смотреть, скачивать и делиться ссылкой.</p></details><details><summary>Сколько стоит съёмка?</summary><p class="faq__answer">Зависит от длительности, места и задач. Напишите в Viber или позвоните, и я рассчитаю стоимость под ваше событие.</p></details><details><summary>Вы будете мешать гостям?</summary><p class="faq__answer">Нет. Я работаю незаметно, в репортажной манере: люди не позируют, а отдыхают.</p></details><details><summary>Можно ли перевести сайт в чёрно-белый режим?</summary><p class="faq__answer">Да, переключатель «Цвет / Ч/Б» в шапке сайта. Так удобнее оценить свет и композицию.</p></details><details><summary>Когда будут готовы фотографии?</summary><!-- TEMP: уточнить у Макса, см. docs/todo.md --><p class="faq__answer">Срок зависит от объёма съёмки. Точный срок назову при обсуждении, до начала работы.</p></details><details><summary>Можно получить несколько фото сразу после события?</summary><!-- TEMP: уточнить у Макса, см. docs/todo.md --><p class="faq__answer">Обсудим заранее: если нужна быстрая подборка для соцсетей или пресс-релиза, учту это при планировании.</p></details><details><summary>Вы работаете с компаниями?</summary><!-- TEMP: уточнить у Макса, см. docs/todo.md --><p class="faq__answer">Да, снимаю корпоративы, конференции и тимбилдинги для компаний. Условия оплаты и документы обсуждаем индивидуально.</p></details><details><summary>Как забронировать дату?</summary><!-- TEMP: уточнить у Макса, см. docs/todo.md --><p class="faq__answer">Напишите или позвоните, указав дату, место и формат события. Я подтвержу, свободен ли день, и расскажу об условиях бронирования.</p></details></div></section>
 </main>
 <section class="cta">
 <div class="cta__in">
@@ -47,7 +67,21 @@
 <a class="btn btn--ghost" href="https://www.instagram.com/maks.socolov/" rel="noopener">Instagram</a>
 </div>
 </div>
-<footer class="footer"><div class="footer__in"><span>© 2026 Макс Соколов, репортажный фотограф · Минск, Беларусь</span><a href="../services/">Услуги</a></div></footer>
+<footer class="footer"><div class="wrap footer__in">
+<div><p>Репортажная съёмка мероприятий в Минске и по Беларуси. 15+ лет опыта.</p><p>© 2026 Макс Соколов</p></div>
+
+<nav aria-label="Ссылки в подвале">
+<a href="../services/">Цены и услуги</a>
+<a href="../services/#faq">Частые вопросы</a>
+<a href="../sitemap/">Карта сайта</a>
+</nav>
+<nav aria-label="Связь и соцсети">
+<a href="tel:+375445506019">+375 44 550-60-19</a>
+<a href="viber://chat?number=%2B375445506019">Viber</a>
+<a href="https://www.instagram.com/maks.socolov/" rel="noopener">Instagram</a>
+<a href="https://www.threads.com/@maks.socolov" rel="noopener">Threads</a>
+</nav>
+</div></footer>
 </section>
 <nav class="actionbar" aria-label="Быстрая связь">
 <a class="call" href="tel:+375445506019" aria-label="Позвонить"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>

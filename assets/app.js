@@ -5,13 +5,71 @@
   root.classList.add('js');
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Mobile menu toggle.
+  var theme = document.querySelector('.theme-toggle');
+  if (theme) {
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
+    var modes = theme.querySelectorAll('button');
+    function setTheme(mono) {
+      root.classList.toggle('mono', mono);
+      themeMeta.content = mono ? '#F4F4F4' : '#F4F4F2';
+      modes.forEach(function (mode) {
+        mode.setAttribute('aria-pressed', String((mode.dataset.theme === 'mono') === mono));
+      });
+    }
+    setTheme(root.classList.contains('mono'));
+    theme.hidden = false;
+    modes.forEach(function (mode) {
+      mode.addEventListener('click', function () {
+        var mono = mode.dataset.theme === 'mono';
+        try {
+          localStorage.setItem('max-photo-theme', mode.dataset.theme);
+          setTheme(mono);
+        } catch (_) {
+          setTheme(false);
+        }
+      });
+    });
+  }
+
   var btn = document.querySelector('.menu-btn');
   var nav = document.querySelector('.nav');
+  var mobile = window.matchMedia('(max-width: 900px)');
   if (btn && nav) {
+    function setMenu(open) {
+      nav.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    }
     btn.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var open = !nav.classList.contains('is-open');
+      setMenu(open);
+      if (open) nav.querySelector('a').focus();
+    });
+    mobile.addEventListener('change', function () { setMenu(false); });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        setMenu(false);
+        btn.focus();
+      }
+    });
+  }
+
+  var portfolio = document.querySelector('.nav__portfolio');
+  if (portfolio) {
+    var portfolioLink = portfolio.querySelector('a');
+    portfolio.addEventListener('keydown', function (event) {
+      if (!mobile.matches && event.key === 'Escape') {
+        portfolio.classList.add('is-dismissed');
+        portfolioLink.focus();
+      }
+      if (!mobile.matches && event.key === 'ArrowDown') {
+        event.preventDefault();
+        portfolio.classList.remove('is-dismissed');
+        portfolio.querySelector('.nav__sub a').focus();
+      }
+    });
+    portfolio.addEventListener('pointerenter', function () { portfolio.classList.remove('is-dismissed'); });
+    portfolio.addEventListener('focusout', function (event) {
+      if (!portfolio.contains(event.relatedTarget)) portfolio.classList.remove('is-dismissed');
     });
   }
 
